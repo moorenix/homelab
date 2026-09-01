@@ -14,7 +14,7 @@ Future/second site — currently **stubbed**. `pcola` (`192.168.16.0/21`, gatewa
 * `pcola/proxmox-host-setup/vars/tailscale_vars.yml:17` `ip: 192.168.24.1` `enabled: false`
 * `pcola/proxmox-host-setup/vars/wireguard_vars.yml:18` `ip: 192.168.24.1` `enabled: false` (legacy)
 * `pcola/pod1/README.md: Adding 192.168.24.1 later (Tailscale — river site)`
-* `pcola/pod1/monitoring/grafana/dashboards/Tailscale/tailscale.json` — `Instance` variable `label_values(node_network_receive_bytes_total{device="tailscale0"}, instance)` will include `192.168.24.1:9100` after scrape
+* `pcola/pod1/monitoring/grafana/dashboards/Networking/tailscale.json` — `Instance` variable `label_values(node_network_receive_bytes_total{device="tailscale0"}, instance)` will include `192.168.24.1:9100` after scrape
 
 ## When river device ships
 

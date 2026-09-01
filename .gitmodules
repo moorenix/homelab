@@ -1,0 +1,10 @@
+[submodule "pcola/pod1"]
+	path = pcola/pod1
+	url = git@github.com:moorenix/pod1.git
+[submodule "pcola/proxmox-host-setup"]
+	path = pcola/proxmox-host-setup
+	url = git@github.com:moorenix/proxmox-host-setup.git
+	branch = 1-jellyfin-plex-lxc-install
+[submodule "pcola/turnstone"]
+	path = pcola/turnstone
+	url = git@github.com:moorenix/turnstone.git

@@ -18,4 +18,6 @@ river/
 └── vars/              # river-specific ansible vars if split from pcola/proxmox-host-setup
 ```
 
-Do not commit secrets (`APN`, `PIN`) — use `~/.ansible-vault/ansible_key.key` + Bitwarden, same as `pcola`.
+## Secrets — open source, no secrets ever
+
+This `river/` is part of **public open source** `moorenix/homelab` — must contain **NO secrets**. Do not commit `APN`, `PIN`, passwords, tokens, or private keys. Real values live only on hosts or `~/.ansible-vault/ansible_key.key` + Bitwarden, same as `pcola`. Before every commit scan `git grep -IEni "password|passwd|secret|token|BEGIN.*PRIVATE KEY"` and `git diff --cached`. Never print secret values.

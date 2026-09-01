@@ -31,6 +31,10 @@ Canonical TODOs live **in each sub-project** plus this umbrella. All agents **mu
 
 **Agent rule:** at session start or before closing a task, `read` the relevant `README.md#TODO` (and `AGENTS.md#TODO` if present). If you complete a TODO item, **update the checkbox** (`- [ ]` → `- [x]` with date/commit) in that project's README and, for umbrella, bump the submodule. If idle and TODOs remain, **propose the next TODO** to the user instead of exiting.
 
+## Secrets — open source, no secrets ever
+
+All `moorenix/homelab` and `pcola/*` repos are **public open source**. They must contain **NO secrets**: no passwords, tokens, API keys, APN/PIN, private keys, or vault plaintext. Real secrets live only on hosts (`/var/lib/turnstone/turnstone.env` `chmod 600`, `~/.ansible-vault/ansible_key.key`, `~/.ssh/turnstone-proxmox`, `nut/upsd.users` `CHANGE_ME`, `grafana.db` Telegram token, `pve.yml` token) or Bitwarden/vault. When copying live files, redact before commit. Before every commit scan: `git grep -IEni "password|passwd|secret|token|BEGIN.*PRIVATE KEY" $(git rev-list --all)` and `git diff --cached`. Never print secret values into chat/logs.
+
 ## Runbook
 
 1. **Intake:** confirm target site (`pcola` vs `river`) and sub-repo(s). Read that sub-repo's `AGENTS.md` + `README.md#TODO`.

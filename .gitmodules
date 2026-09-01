@@ -8,3 +8,6 @@
 [submodule "pcola/turnstone"]
 	path = pcola/turnstone
 	url = git@github.com:moorenix/turnstone.git
+[submodule "pcola/homelab-monitoring"]
+	path = pcola/homelab-monitoring
+	url = git@github.com:moorenix/homelab-monitoring.git

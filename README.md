@@ -10,7 +10,8 @@ homelab/
 │   │   ├── vars/openwrt_vars.yml  # 192.168.16.1 GL-AP1300 + Quectel EC25-AF LTE (backup)
 │   │   ├── vars/tailscale_vars.yml # tailscale0 192.168.16.1 (pcola), 192.168.24.1 (river stub)
 │   │   └── docs/pcola-homelab.md  # gateway inventory + LTE failover design
-│   └── turnstone/                 # Turnstone AI orchestration quadlets (deploy on pod1)
+│   ├── turnstone/                 # Turnstone AI orchestration quadlets (deploy on pod1)
+│   └── homelab-monitoring/        # UPS + Grafana/Prometheus/Telegraf (NUT vpn 192.168.16.4, pod1 stack)
 └── river/                         # site river: 192.168.24.0/23 (stub, future device)
     └── README.md                  # placeholder — add 192.168.24.1 openwrt + hosts here
 ```
@@ -41,6 +42,7 @@ Stubbed — `192.168.24.1` disabled in `pcola/proxmox-host-setup/vars/tailscale_
 * **WireGuard (legacy):** `pcola/proxmox-host-setup/vars/wireguard_vars.yml` (kept for history)
 * **Pod1 services:** `pcola/pod1/README.md` `pcola/pod1/UPGRADE.md`
 * **Turnstone:** `pcola/turnstone/quadlets/README.md`
+* **Monitoring (UPS/metrics):** `pcola/homelab-monitoring/` — NUT + telegraf/prometheus/grafana (owned, linked from pod1)
 
 ## Deploy
 

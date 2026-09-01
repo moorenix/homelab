@@ -57,3 +57,22 @@ scp -r pcola/turnstone/quadlets/* nicholas@192.168.16.146:~/.config/containers/s
 ```
 
 Old paths `proxmox-host-setup/`, `pod1/`, `turnstone/` at homelab root are now `pcola/...` — update scripts accordingly.
+
+## TODO
+
+Cross-site tracking — each sub-project has its own `## TODO` (see links). Umbrella items:
+
+- [ ] `pcola` LTE backup: finish `pcola/proxmox-host-setup/docs/pcola-homelab.md#TODO before enabling` (APN, `mwan3`, signal `-129 RSRP`, `metric 10 vs 20`) — `vars/openwrt_vars.yml:openwrt_lte_backup`
+- [ ] `river` site bring-up: deploy gateway `192.168.24.1/23` `node_exporter :9100` `tailscale0`, then enable `pcola/proxmox-host-setup/vars/tailscale_vars.yml:17` `192.168.24.1 enabled:true` and `pcola/pod1/monitoring/prometheus/tailscale.yml.example` stub
+- [ ] `pcola/homelab-monitoring` planned: `site2-remote-b` UPS + Pi collector (Alloy HDD WAL, remote_write) + `pancakesmp` options — see `pcola/homelab-monitoring/AGENTS.md#Proposed` and `README.md#TODO`
+- [ ] `pcola/pod1` stable pins: cut `prometheus v3.14.0`, `grafana 13.0.2`, `turnstone 1.8`, `telegraf 1.39` PRs per `pcola/pod1/UPGRADE.md` / `README.md#Stable version proposal`
+- [ ] `pcola/proxmox-host-setup` branch hygiene: merge `1-jellyfin-plex-lxc-install` → `main` after LTE/river vars stable (currently `.gitmodules` tracks that branch)
+- [ ] `moorenix/homelab-monitoring` default branch `master` vs others `main` — decide and align
+
+Update submodules after each project push:
+
+```bash
+git submodule update --remote pcola/pod1 pcola/proxmox-host-setup pcola/turnstone pcola/homelab-monitoring
+git add pcola/pod1 pcola/proxmox-host-setup pcola/turnstone pcola/homelab-monitoring
+git commit -m "homelab: bump submodules" && git push
+```
